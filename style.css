@@ -1,0 +1,557 @@
+/* === style.css (Aesthetic & Modern Space Theme - REVAMPED v2) === */
+
+/* Menggunakan font Roboto dan Montserrat untuk tampilan modern */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    /* Palet Warna: Biru Tua (Space), Cyan/Neon, dan Aksen Oranye */
+    --color-primary: #3f51b5; /* Indigo/Deep Blue untuk penekanan */
+    --color-secondary: #00e5ff; /* Cyan Neon untuk aksen */
+    --color-accent: #ff7043; /* Peach/Coral lembut untuk tombol utama */
+    --color-background: #f5f7fa; /* Light Grayish Blue */
+    --color-card: #ffffff;
+    --color-text-dark: #263238; /* Dark Slate */
+    --color-text-light: #546e7a; /* Medium Slate */
+    --shadow-soft: 0 6px 16px rgba(0, 0, 0, 0.1);
+    --shadow-elevate: 0 12px 30px rgba(63, 81, 181, 0.3);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+header {
+  background: linear-gradient(135deg, #1a237e, var(--color-primary)); /* Deep Blue Gradient */
+  color: var(--color-card);
+  text-align: center;
+  padding: 40px 15px;
+  box-shadow: var(--shadow-elevate);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--color-secondary);
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* === NAVIGASI (Dibuat Responsif) === */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--color-card);
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap; /* Tombol akan pindah baris pada layar kecil */
+}
+
+nav button, nav a {
+  padding: 10px 18px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-light);
+  border-radius: 8px; /* Sudut lebih modern */
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-size: 0.9em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Cegah teks tombol memecah baris */
+}
+
+nav button:hover, nav a:hover {
+  background: #e8eaf6;
+  color: var(--color-primary);
+}
+
+nav button.active-nav {
+  background: var(--color-primary);
+  color: var(--color-card);
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(63, 81, 181, 0.4);
+}
+
+#btnBeranda {
+    background: var(--color-accent);
+    color: white;
+    font-weight: 700;
+    box-shadow: var(--shadow-soft);
+}
+#btnBeranda:hover {
+    background: #e64a19;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* === MAIN CONTENT === */
+main {
+  padding: 30px 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  display: none;
+  background: var(--color-card);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  margin-top: 25px;
+  border-left: 5px solid var(--color-primary); /* Aksen Sisi */
+}
+
+section.active {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: var(--color-text-light);
+}
+
+/* UTILITY BUTTONS (GLOBAL) */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    background: var(--color-accent);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(255, 112, 67, 0.4);
+}
+
+.btn:hover {
+    background: #e64a19;
+    box-shadow: 0 6px 15px rgba(230, 74, 25, 0.5);
+    transform: translateY(-2px);
+}
+
+/* === BAGIAN MATERI (3D) === */
+#shapeSelector {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Pusatkan tombol pada mobile */
+    gap: 15px;
+}
+
+.shape-btn {
+    padding: 12px 20px;
+    border: 1px solid #b0bec5;
+    background: #f0f4f9;
+    color: var(--color-text-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.shape-btn:hover {
+    border-color: var(--color-primary);
+    background: #e8eaf6;
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.shape-btn.selected {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    font-weight: 700;
+    box-shadow: 0 6px 15px rgba(63, 81, 181, 0.4);
+    transform: translateY(-2px);
+}
+
+#scene-container {
+    width: 100%;
+    height: 400px; /* Disesuaikan untuk mobile */
+    background: linear-gradient(180deg, #e3f2fd, #ffffff);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05), var(--shadow-soft);
+    border: 1px solid #ddd;
+}
+
+#action-buttons {
+    text-align: center; /* Pusatkan pada mobile */
+    margin-top: 20px;
+}
+#btnJaring {
+    background: var(--color-secondary);
+    color: var(--color-text-dark);
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 229, 255, 0.4);
+}
+#btnJaring:hover {
+    background: #00b8d4;
+    box-shadow: 0 6px 15px rgba(0, 229, 255, 0.5);
+}
+
+/* === BAGIAN JARING-JARING (GAME) === */
+
+#editorControls {
+    display: flex;
+    flex-direction: column; /* Stacked pada mobile */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    background: #e8eaf6;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid var(--color-primary);
+}
+
+#shapePalette {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.palette-shape-btn {
+    padding: 10px 15px;
+    border: 1px solid var(--color-text-light);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.palette-shape-btn.selected-tool {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 10px rgba(255, 112, 67, 0.4);
+}
+
+#currentToolInfo {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+#net-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 100%;
+    max-width: 350px; /* Batasi ukuran board agar pas di mobile */
+    aspect-ratio: 1 / 1;
+    margin: 20px auto;
+    border: 3px solid var(--color-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.net-tile {
+    border: 1px solid #cfd8dc;
+    position: relative;
+    cursor: not-allowed;
+    transition: all 0.1s;
+    background-color: #fcfcfc;
+}
+
+.net-tile[data-row="2"][data-col="2"] {
+    background-color: #fffde7;
+    border-color: #ffeb3b;
+}
+
+.net-tile.has-shape {
+    cursor: pointer;
+    background-color: #e8eaf6;
+}
+
+.net-tile .face-shape {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255,255,255,0.9);
+    transition: clip-path 0.3s;
+}
+
+.net-tile[data-type="Persegi"] .face-shape { background-color: #81c784; }
+.net-tile[data-type="PersegiPanjang"] .face-shape { background-color: #ffcc80; }
+.net-tile[data-type="Segitiga"] .face-shape { background-color: #64b5f6; clip-path: polygon(0% 100%, 50% 0%, 100% 100%); }
+
+
+#game-actions {
+    display: flex;
+    flex-direction: column; /* Stacked buttons on mobile */
+    gap: 15px;
+    margin-top: 15px;
+}
+.game-btn {
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    width: 100%;
+}
+
+.reset-btn {
+    background: #90a4ae;
+    color: white;
+    box-shadow: 0 4px 8px rgba(144, 164, 174, 0.3);
+}
+.reset-btn:hover {
+    background: #546e7a;
+}
+
+#game-message {
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    background: #e0f7fa;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+}
+
+/* MODAL BARU (Overlay yang Menutup Seluruh Layar) */
+.modal {
+    display: none; /* HARUS ditambahkan/dipertahankan agar tersembunyi default */
+    position: fixed; /* Tetap di viewport */
+    z-index: 100; /* Di atas semua elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Overlay gelap */
+    /* Efek animasi muncul */
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Animasi untuk modal agar terlihat lebih halus saat muncul */
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--color-card);
+    /* margin diubah dari 15% auto ke yang lebih dinamis */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Memastikan pusar vertikal dan horizontal */
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-elevate);
+    
+    /* Efek muncul dari atas */
+    animation: slideInTop 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes slideInTop {
+    from { transform: translate(-50%, -100%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+/* Gaya untuk tombol tutup (x) */
+.close-btn {
+    color: var(--color-text-light);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-title { 
+    font-size: 1.6em; 
+    font-weight: 800; 
+    margin-bottom: 15px; 
+    border-left: 5px solid; /* Tambahkan garis warna untuk indikasi status */
+    padding-left: 10px;
+    line-height: 1.2;
+}
+
+.success { 
+    color: #4CAF50; 
+    border-left-color: #4CAF50 !important; 
+}
+.error { 
+    color: #f44336; 
+    border-left-color: #f44336 !important;
+}
+
+
+/* === BAGIAN QUIZ === */
+#quiz-container {
+    background: #fcfcfc;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+#timer {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border: 2px solid var(--color-accent);
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#question-text {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+#answer-buttons {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked on mobile */
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.answer-btn {
+    padding: 15px;
+    background: #f0f4f9;
+    color: var(--color-text-dark);
+    border: 1px solid #b0bec5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: left;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.answer-btn:hover:not(.correct):not(.incorrect) {
+    background: #e8eaf6;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+#btnNext {
+    margin-top: 15px;
+    float: right;
+    background: var(--color-primary);
+}
+
+.answer-btn.correct { background: #4CAF50; color: white; border-color: #388e3c; pointer-events: none; box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4); transform: none; }
+.answer-btn.incorrect { background: #f44336; color: white; border-color: #d32f2f; pointer-events: none; box-shadow: 0 4px 10px rgba(244, 67, 54, 0.4); transform: none; }
+
+
+.hidden { display: none !important; }
+
+/* === RESPONSIVE DESIGN (Mobile First) === */
+
+/* Untuk Tablet dan Desktop Kecil (lebar >= 600px) */
+@media (min-width: 600px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+
+    main { padding: 40px 30px; }
+    section { padding: 50px; }
+
+    /* Navigasi */
+    nav { flex-wrap: nowrap; gap: 15px; }
+    nav button, nav a { font-size: 1em; padding: 10px 25px; }
+
+    /* Scene 3D */
+    #scene-container { height: 500px; }
+    #action-buttons { text-align: right; }
+
+    /* Kontrol Game Jaring-Jaring */
+    #editorControls {
+        flex-direction: row; /* Kembali ke baris */
+        justify-content: space-between;
+        padding: 30px 40px;
+    }
+    #game-actions {
+        flex-direction: row; /* Kembali ke baris */
+        justify-content: center;
+        gap: 20px;
+    }
+    .game-btn {
+        width: auto;
+    }
+
+    /* Quiz */
+    #answer-buttons {
+        grid-template-columns: 1fr 1fr; /* 2 kolom untuk tablet */
+        gap: 15px;
+    }
+}
+
+/* Untuk Desktop (lebar >= 900px) */
+@media (min-width: 900px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.2em; }
+    main { padding: 50px 40px; }
+    section { padding: 60px; }
+
+    /* Quiz */
+    #answer-buttons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
